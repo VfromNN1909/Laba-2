@@ -14,7 +14,7 @@ namespace Laba2
         {
 
         }
-
+        // функция склонения(задание №1) 
         private void inflect()
         {
             // ловим ошибку
@@ -51,13 +51,13 @@ namespace Laba2
                         );
             }
         }
-
+        // задание №1
         private void Button1_Click(object sender, EventArgs e)
         {
             inflect();
         }
 
-        // второе задание
+        // функция вычисления значения функции(задание №2)
         private void calculateOne(double x)
         {
             // нужно для обновления текста в лейбле
@@ -94,7 +94,7 @@ namespace Laba2
                         );
                 }
             }
-            if (x >= 3 && x < 3)
+            if (x >= 3 && x < 8)
             {
                 y = (3 * x - 9) / 5;
             }
@@ -107,18 +107,22 @@ namespace Laba2
                 label6.Text += $"Значение функции = {y}";
         }
         
-        // третье задание
+        // функция вычисления попадания точки в закрашенную область
         private void calculateTwo(double x, double y, double r)
         {
             label12.Text = "";
+            // если условие проходит
             if ((x >= 0 && y >= 0 && x * x + y * y <= r * r) || 
                 (x <= 0 && y <= 0 && x * x + y * y <= r * r) || 
                 (x < 0 && y > 0 && x + -y >= -r))
             {
+                // выводим
                 label12.Text = "Точка попала";
             }
+            // если нет
             else
             {
+                // выводим
                 label12.Text = "Точка не попала";
             }
         }
@@ -127,15 +131,20 @@ namespace Laba2
         {
 
         }
-
+        // задание №2
         private void Button2_Click(object sender, EventArgs e)
         {
+            // переменная
             double x;
+            // пытаемся запарсить
             bool bX = double.TryParse(textBox2.Text, out x);
+            // если получается
             if (bX)
             {
+                // считаем
                 calculateOne(x);
             }
+            // иначе выводим сообщение об ошибке
             else
             {
                 MessageBox.Show("Введите аргумент правильно!",
@@ -156,22 +165,31 @@ namespace Laba2
         {
 
         }
-
+        // задание №3
         private void Button3_Click(object sender, EventArgs e)
         {
+            // переменные
             double x, y, r;
+            // считываем координаты
             var coords = textBox4.Text.Split(' ');
+            // если координаты 2
+            // т.е. их ввели все и ввели правильно
             if(coords.Length == 2)
             {
+                // пытаемся запарсить
                 bool bX = double.TryParse(coords[0], out x);
                 bool bY = double.TryParse(coords[1], out y);
                 bool bR = double.TryParse(textBox5.Text, out r);
+                // если получилось
                 if (bX && bY && bR)
                 {
+                    // считаем
                     calculateTwo(x, y, r);
                 }
+                // если запарсить не получилось
                 else
                 {
+                    // выводим сообщение об ошибке
                     MessageBox.Show(
                         "Проверьте правильность введенных данных!",
                         "Ошибка!",
@@ -180,8 +198,10 @@ namespace Laba2
                         );
                 }
             }
+            // если координаты введены неправильно
             else
             {
+                // выводим сообщение об ошибке
                 MessageBox.Show("Введите 2 координаты!",
                         "Ошибка!",
                         MessageBoxButtons.OK,

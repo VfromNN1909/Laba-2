@@ -19,21 +19,28 @@ namespace Laba2
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            // создаем объект BranchingForm
             var branchingForm = new BranchingForm();
+            // показываем форму
             branchingForm.Show();
+            // прячем эту
             Hide();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            // создаем объект LoopsForm
             var loopsForm = new LoopsForm();
+            // показываем форму
             loopsForm.Show();
             Hide();
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            // создаем объект ArraysForm
             var arraysForm = new ArraysForm();
+            // показываем форму
             arraysForm.Show();
             Hide();
         }
